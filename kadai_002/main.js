@@ -119,13 +119,12 @@ const timer = () => {
         }
 
     }, 1000);
-
 };
 
-// タイマーが停止したら「ゲーム終了！」と表示
+// タイマーが停止したら「ゲームアップ！」と表示
 const gameOver = id => {
     clearInterval(id);
-    untypedfield.textContent = 'ゲーム終了！';
+    untypedfield.textContent = 'タイムアップ！';
 
     alert(rankCheck(score));
 
