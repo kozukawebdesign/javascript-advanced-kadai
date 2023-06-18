@@ -97,20 +97,8 @@ const rankCheck = score => {
     }
 
     // 生成したメッセージと一緒に文字列を返す
-    return `${score}文字打てました！\n${text}\n【OK】リトライ / 【キャンセル】終了`;
+    return `${score}文字打てました！`;
 
-};
-
-// ゲームを終了
-const gameOver = id => {
-    clearInterval(id);
-
-    const result = confirm(rankCheck(score));
-
-    // OKボタンをクリックされたらリロードする
-    if(result == true){
-        window.location.reload();
-    }
 };
 
 // カウントダウンタイマー
@@ -132,6 +120,19 @@ const timer = () => {
 
     }, 1000);
 
+};
+
+// タイマーが停止したら「ゲーム終了！」と表示
+const gameOver = id => {
+    clearInterval(id);
+    untypedfield.textContent = 'ゲーム終了！';
+
+    alert(rankCheck(score));
+
+// OKボタンをクリックされたら最初の画面にリロードする
+    setTimeout(() => {
+        window.location.reload();
+    },3000);
 };
 
 // ゲームスタート時の処理
